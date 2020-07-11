@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { createMessage, createSubject } from './helpers'
 
 async function push(url: string, data: object) {
   const result = await axios({
@@ -13,10 +14,10 @@ async function push(url: string, data: object) {
 }
 
 export async function gotify(email: string, server: string, token: string, object: any): Promise<TriggerResult> {
-  var url = `${server}/message?token=${token}`;
-  const message = Object.keys(object).map((key => `${key}: ${object[key]}`)).join('\n\n')
+  const url = `${server}/message?token=${token}`;
+  const message = createMessage(object)
   const bodyFormData = {
-    title: `Post av ${object.name}`,
+    title: createSubject(object),
     message,
     priority: 5,
   };

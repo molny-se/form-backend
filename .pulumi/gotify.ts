@@ -9,6 +9,8 @@ const password = new random.RandomPassword("gotify-password", {
     length: 32,
     special: true,
     overrideSpecial: `_%@`,
+}, {
+  additionalSecretOutputs: ['result']
 });
 
 export const gotifyPassord = password.result

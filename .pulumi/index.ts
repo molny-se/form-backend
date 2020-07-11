@@ -1,15 +1,18 @@
+import * as pulumi from '@pulumi/pulumi';
 import * as digitalocean from '@pulumi/digitalocean';
 import * as k8s from '@pulumi/kubernetes';
-import { provider, namespace } from './provider'
+import { provider } from './provider'
 import { service as gotifyService, gotifyPassord } from './gotify'
 import { env } from './env'
 import { image } from './image'
 
 export { gotifyPassord }
 
+const config = new pulumi.Config();
+export const domainName = config.require('domain')
+
 const appName = 'molny-form-backend'
 const appLabels = { app: appName };
-const domainName = 'form2.molny.se'
 
 const domain = new digitalocean.Domain(appName, {
   name: domainName,
