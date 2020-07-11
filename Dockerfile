@@ -15,8 +15,8 @@ FROM mhart/alpine-node:slim-12
 
 # If possible, run your container using `docker run --init`
 # Otherwise, you can use `tini`:
-# RUN apk add --no-cache tini
-# ENTRYPOINT ["/sbin/tini", "--"]
+RUN apk add --no-cache tini
+ENTRYPOINT ["/sbin/tini", "--"]
 
 WORKDIR /app
 COPY --from=0 /app .

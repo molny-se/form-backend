@@ -1,0 +1,15 @@
+config:
+  digitalocean:token:
+    secure: AAABAJ6739JFwUfCNtCspkfSfmWhdzkZhlmP3fX5yaCYD2L9vjsBZssKKUHZ4t8mU/7G5C9TjXecn+RfKXH5qPJR3vS/l9PO1A4l/bs2j9M2E5cpiqtYmOz/J0a51SIp
+  form-backend:dockerPassword:
+    secure: AAABAAkdMgXe4+UEELt/l2/mSwbXjOLwycGsq2xca9GcVxKpV+vUL5L/ra8aHlXu
+  form-backend:domain: notifications.molny.se
+  form-backend:email: benjick@dumfan.net
+  form-backend:fromEmail: notifications@molny.se
+  form-backend:fromName: Molny.se form
+  form-backend:gotifyToken:
+    secure: AAABAIAjB+DwI7NDk59TbQRtVRBOrcDC45xFSh5/1Mw4XWA43W49zsSBvReeuZA=
+  form-backend:sendgridToken:
+    secure: AAABAAfkR+7egC4AJUvzEQMTFBR0mtGNsK6+swKNXdM4nGwiwu1iLVLq6lCSXxSRDd34Gig9At+18tHQjAqW11x6SJKSnF0RXDEE8JduQcG5xQJDJf4lo09SivCM3F8xdiBgPCA=
+  form-backend:stack:
+    secure: AAABAP0x6huCmF7xHv5wR3U3nvpkFxHiJeSAptiS2o2nNR3fQ95Lu6gIyJeElaW+

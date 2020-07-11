@@ -5,8 +5,6 @@ yarn-error.*
 # compiled code
 lib
 
-# gotify server docker data
 gotify_data
-
-.env
-
+.pulumi
+.github

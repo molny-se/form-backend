@@ -3,16 +3,14 @@ import { router, post, AugmentedRequestHandler } from 'microrouter'
 import { env } from './env'
 import { sendgrid } from './sendgrid'
 import { gotify } from './gotify'
+import microCors from 'micro-cors'
+
+const cors = microCors()
 
 const email = env.EMAIL
+const requiredFields = env.REQUIRED_FIELDS
 const gotifyServer = env.GOTIFY__SERVER
 const gotifyToken = env.GOTIFY__TOKEN
-
-const requiredFields = ['message']
-if (env.REQUIRED_FIELDS) {
-  const extraRequiredFields = env.REQUIRED_FIELDS.split(',').map((f: string) => f.trim())
-  extraRequiredFields.forEach((field: any) => requiredFields.push(field))
-}
 
 async function trigger(object: any) {
   const results: TriggerResult[] = []
@@ -30,7 +28,7 @@ async function trigger(object: any) {
 export const webhook: AugmentedRequestHandler = async (req, res) => {
   const object = await json(req)
   const keys = Object.keys(object)
-  if (!requiredFields.every(field => keys.includes(field))) {
+  if (!requiredFields.every((field: string) => keys.includes(field))) {
     return send(res, 400)
   }
   const result = await trigger(object)
@@ -41,6 +39,6 @@ export const webhook: AugmentedRequestHandler = async (req, res) => {
   send(res, 200, data)
 }
 
-module.exports = router(
+module.exports = cors(router(
   post('/trigger', webhook)
-)
+))

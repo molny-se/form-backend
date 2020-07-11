@@ -1,31 +1,41 @@
 import sgMail from '@sendgrid/mail'
 import { env } from './env'
+import { createMessage, createSubject } from './helpers'
+import mail from '@sendgrid/mail';
 
 export async function sendgrid(email: string, object: any): Promise<TriggerResult> {
   const sendgridApiKey = env.SENDGRID__API_KEY
 
   if (sendgridApiKey) {
-    sgMail.setApiKey(sendgridApiKey);
-    const message = Object.keys(object).map((key => `${key}: ${object[key]}`)).join('\n\n')
-
-    var mailOptions = {
-      from: '"Example Team" <from@example.com>',
-      to: email,
-      subject: `Post av ${object.name}`,
-      text: message,
-    };
-
-    const res = await sgMail.send(mailOptions);
-    return {
-      id: 'sendgrid',
-      status: 'ok',
-      data: {
-        statusCode: res[0].statusCode
+    try {
+      sgMail.setApiKey(sendgridApiKey);
+      const message = createMessage(object)
+      const subject = createSubject(object)
+      const mailOptions = {
+        from: `"${env.FROM_NAME}" <${env.FROM_EMAIL}>`,
+        to: email,
+        subject,
+        text: message,
+      };
+  
+      const res = await sgMail.send(mailOptions);
+      return {
+        id: 'sendgrid',
+        status: 'ok',
+        data: {
+          statusCode: res[0].statusCode
+        }
+      }
+    } catch (error) {
+      return {
+        id: 'sendgrid',
+        status: 'error',
+        data: error.response.body
       }
     }
   } else {
     return {
-      id: 'mailtrap',
+      id: 'sendgrid',
       status: 'skipped'
     }
   }
