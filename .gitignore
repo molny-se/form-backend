@@ -1,0 +1,12 @@
+node_modules
+.DS_Store
+yarn-error.*
+
+# compiled code
+lib
+
+# gotify server docker data
+gotify_data
+
+.env
+

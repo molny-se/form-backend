@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  gotify:
+    image: gotify/server
+    ports:
+      - 1337:80
+    environment:
+      - GOTIFY_DEFAULTUSER_PASS=demo
+    volumes:
+      - "./gotify_data:/app/data"
+
+  backend:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - GOTIFY__SERVER=http://gotify
