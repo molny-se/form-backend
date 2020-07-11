@@ -9,11 +9,7 @@ async function push(url: string, data: object) {
     url,
     data,
   })
-  return {
-    id: 'gotify',
-    status: 'ok',
-    data: result.data
-  }
+  return result
 }
 
 export async function gotify(email: string, server: string, token: string, object: any): Promise<TriggerResult> {

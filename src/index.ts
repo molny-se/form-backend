@@ -20,6 +20,7 @@ async function trigger(object: any) {
     const result: TriggerResult = await sendgrid(email, object)
     results.push(result)
   }
+  console.log('gotify', gotifyServer, gotifyToken)
   if (gotifyServer && gotifyToken) {
     const result = await gotify(email, gotifyServer, gotifyToken, object)
     results.push(result)

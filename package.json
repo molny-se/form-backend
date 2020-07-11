@@ -12,6 +12,11 @@
     "start": "yarn build && micro"
   },
   "dependencies": {
+    "@pulumi/digitalocean": "^2.6.0",
+    "@pulumi/docker": "^2.2.3",
+    "@pulumi/kubernetes": "^2.4.0",
+    "@pulumi/pulumi": "^2.6.1",
+    "@pulumi/random": "^2.2.0",
     "@sendgrid/mail": "^7.2.1",
     "@types/dotenv-parse-variables": "^0.2.0",
     "axios": "^0.19.2",
