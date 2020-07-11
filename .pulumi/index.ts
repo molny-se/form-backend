@@ -1,9 +1,11 @@
 import * as digitalocean from '@pulumi/digitalocean';
 import * as k8s from '@pulumi/kubernetes';
 import { provider, namespace } from './provider'
-import { service as gotifyService } from './gotify'
+import { service as gotifyService, gotifyPassord } from './gotify'
 import { env } from './env'
 import { image } from './image'
+
+export { gotifyPassord }
 
 const appName = 'molny-form-backend'
 const appLabels = { app: appName };
@@ -69,14 +71,14 @@ const ingress = new k8s.networking.v1beta1.Ingress(appName,
           http: {
             paths: [
               {
-                path: '/',
+                path: '/trigger',
                 backend: {
                   serviceName: service.metadata.name,
                   servicePort: service.spec.ports[0].port,
                 }
               },
               {
-                path: '/trigger',
+                path: '/',
                 backend: {
                   serviceName: gotifyService.metadata.name,
                   servicePort: gotifyService.spec.ports[0].port,

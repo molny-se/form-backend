@@ -5,7 +5,7 @@ config:
     secure: AAABAAkdMgXe4+UEELt/l2/mSwbXjOLwycGsq2xca9GcVxKpV+vUL5L/ra8aHlXu
   form-backend:email: benjick@dumfan.net
   form-backend:gotifyToken:
-    secure: AAABAIdik16dycnVs/uLcUnV8ss1aPOEFlYXalKDB8ribTs=
+    secure: AAABAIAjB+DwI7NDk59TbQRtVRBOrcDC45xFSh5/1Mw4XWA43W49zsSBvReeuZA=
   form-backend:sendgridToken:
     secure: AAABAFCyedpIZNzQDhcr/fISnJt/pnGXQ1QIacgO+dEA2bgEYYF8Q2/l6BgK/r5aEQi+vDecy97K6dF3hQW8qSHqppIq9URN5N5X8SHpzofWfo4NknQJjYKthvmN+6bpzQSGFds=
   form-backend:stack:
