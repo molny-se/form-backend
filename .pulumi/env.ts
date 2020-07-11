@@ -31,7 +31,7 @@ const secretsMapping = [
   { name: 'GOTIFY__SERVER', key: 'gotify-server' },
   { name: 'GOTIFY__TOKEN', key: 'gotify-token' },
   { name: 'EMAIL', key: 'email' },
-  { name: 'SENDGRID__TOKEN', key: 'sendgrid-token' },
+  { name: 'SENDGRID__API_KEY', key: 'sendgrid-token' },
   { name: 'FROM_EMAIL', key: 'from-email' },
   { name: 'FROM_NAME', key: 'from-name' },
 ];

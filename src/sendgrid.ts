@@ -1,14 +1,13 @@
-import sgMail from '@sendgrid/mail'
+import mail from '@sendgrid/mail'
 import { env } from './env'
 import { createMessage, createSubject } from './helpers'
-import mail from '@sendgrid/mail';
 
 export async function sendgrid(email: string, object: any): Promise<TriggerResult> {
   const sendgridApiKey = env.SENDGRID__API_KEY
 
   if (sendgridApiKey) {
     try {
-      sgMail.setApiKey(sendgridApiKey);
+      mail.setApiKey(sendgridApiKey);
       const message = createMessage(object)
       const subject = createSubject(object)
       const mailOptions = {
@@ -18,7 +17,7 @@ export async function sendgrid(email: string, object: any): Promise<TriggerResul
         text: message,
       };
   
-      const res = await sgMail.send(mailOptions);
+      const res = await mail.send(mailOptions);
       return {
         id: 'sendgrid',
         status: 'ok',
