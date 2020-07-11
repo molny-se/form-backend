@@ -7,7 +7,7 @@
   </div>
 
   <p align="center">
-      Am easy to use batteries included form backend to use with for example static sites.
+      An easy to use batteries included form backend to use with for example static sites.
   </p>
 </p>
 

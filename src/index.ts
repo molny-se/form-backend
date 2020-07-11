@@ -3,6 +3,9 @@ import { router, post, AugmentedRequestHandler } from 'microrouter'
 import { env } from './env'
 import { sendgrid } from './sendgrid'
 import { gotify } from './gotify'
+import microCors from 'micro-cors'
+
+const cors = microCors({ allowMethods: ['POST'] })
 
 const email = env.EMAIL
 const gotifyServer = env.GOTIFY__SERVER
@@ -42,6 +45,6 @@ export const webhook: AugmentedRequestHandler = async (req, res) => {
   send(res, 200, data)
 }
 
-module.exports = router(
+module.exports = cors(router(
   post('/trigger', webhook)
-)
+))
