@@ -30,8 +30,8 @@ const secrets = new k8s.core.v1.Secret(
 const secretsMapping = [
   { name: 'GOTIFY__SERVER', key: 'gotify-server' },
   { name: 'GOTIFY__TOKEN', key: 'gotify-token' },
-  { name: 'EMAIL', key: 'email' },
   { name: 'SENDGRID__API_KEY', key: 'sendgrid-token' },
+  { name: 'TO_EMAIL', key: 'email' },
   { name: 'FROM_EMAIL', key: 'from-email' },
   { name: 'FROM_NAME', key: 'from-name' },
 ];

@@ -44,7 +44,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      - EMAIL=hej@molny.se
+      - TO_EMAIL=hej@molny.se
       - GOTIFY__SERVER=http://gotify
       - GOTIFY__TOKEN=foo
       - SENDGRID__API_KEY=bar
@@ -70,7 +70,7 @@ await fetch('http://localhost:3000/trigger', {
 
 This is app is controlled by environment variables for easy configuration.
 
-* `EMAIL` - where to send the email
+* `TO_EMAIL` - where to send the email
 * `FROM_EMAIL` - defaults to `form-backend@example.com`
 * `FROM_NAME` - defaults to `form-backend by Molny`
 * `REQUIRED_FIELDS` - extra formfields to require in validation, defaults to `message,name,email`

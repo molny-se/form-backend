@@ -7,7 +7,7 @@ import microCors from 'micro-cors'
 
 const cors = microCors()
 
-const email = env.EMAIL
+const email = env.TO_EMAIL
 const requiredFields = env.REQUIRED_FIELDS
 const gotifyServer = env.GOTIFY__SERVER
 const gotifyToken = env.GOTIFY__TOKEN
